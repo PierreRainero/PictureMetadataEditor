@@ -1,2 +1,7 @@
 # Bin
 exiftool.exe
+
+# Folders
+/src
+/tmp
+/dest
