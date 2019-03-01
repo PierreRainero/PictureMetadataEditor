@@ -46,6 +46,6 @@ IF NOT DEFINED refLong (
 
 REM For each jpg file in the folder of the "folderToUser" :
 FOR %%f IN (%folderToUser%\*.jpg) DO (
-    exiftool.exe -GPSLatitude="!latitude!" -GPSLongitude="!longitude!" -exif:gpslatituderef=!refLat! -exif:gpslongituderef=!refLong! %%f
-    DEL %%f"_original"
+    exiftool.exe -GPSLatitude="!latitude!" -GPSLongitude="!longitude!" -exif:gpslatituderef=!refLat! -exif:gpslongituderef=!refLong! "%%f"
+    DEL "%%f"_original
 )

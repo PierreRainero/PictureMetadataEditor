@@ -33,7 +33,7 @@ IF NOT "%1"=="" (
 :: For each jpg file in the folder of the "imagesWithData" :
 FOR %%f IN (%imagesWithData%\*.jpg) DO (
     :: Parsing the output to select the shooting date :
-    exiftool.exe -m "-DateTimeOriginal" %%f > temp.txt
+    exiftool.exe -m "-DateTimeOriginal" "%%f" > temp.txt
     SET    shootingDate=
     SET /p shootingDate=<temp.txt
     IF [!shootingDate!]==[] (
@@ -43,7 +43,7 @@ FOR %%f IN (%imagesWithData%\*.jpg) DO (
     )
     
     :: Parsing the output to select the gps position :
-    exiftool.exe -m -n "-GPSLatitude" %%f > temp.txt
+    exiftool.exe -m -n "-GPSLatitude" "%%f" > temp.txt
     SET    gpsLatitude=
     SET /p gpsLatitude=<temp.txt
     IF [!gpsLatitude!]==[] (
@@ -51,7 +51,7 @@ FOR %%f IN (%imagesWithData%\*.jpg) DO (
     ) ELSE (
         SET resultGpsLatitude=!gpsLatitude:~34!
     )
-    exiftool.exe -m -n "-GPSLongitude" %%f > temp.txt
+    exiftool.exe -m -n "-GPSLongitude" "%%f" > temp.txt
     SET    gpsLongitude=
     SET /p gpsLongitude=<temp.txt
     IF [!gpsLongitude!]==[] (
@@ -79,7 +79,7 @@ FOR %%f IN (%imagesWithData%\*.jpg) DO (
     )
 
     :: Copy the metadata of the "imageWithData" to the "imageWithoutData" :
-    exiftool.exe -DateTimeOriginal="!resultShootingDate!" -GPSLatitude="!resultGpsLatitude!" -GPSLongitude="!resultGpsLongitude!" !str!
+    exiftool.exe -DateTimeOriginal="!resultShootingDate!" -GPSLatitude="!resultGpsLatitude!" -GPSLongitude="!resultGpsLongitude!" "!str!"
     DEL "!str!_original"
 )
 
