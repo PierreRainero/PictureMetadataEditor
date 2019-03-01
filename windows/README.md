@@ -63,7 +63,7 @@ Add the gps coordinates : -22.814939 -42.891446
 - whyNotPng.png
 
 Rename all files (jpg files) :  
-`rename_files.bat .\tmp -v`
+`rename_files.bat .\tmp -v`  
  ![example-rename_files_verbose](imgs/example-rename_files_verbose.jpg)  
 Rename all png files with base name "Mes images" :  
 `rename_files.bat .\tmp -base "Mes images" -v -ext png`

@@ -56,7 +56,6 @@ FOR %%f IN (%folderToUser%\*.!ext!) DO (
 
     :: If verbose option is on :
     IF DEFINED verbose (
-        
         ECHO %%f : %folderToUser%\!baseClean!!i!.!ext!
     )
 

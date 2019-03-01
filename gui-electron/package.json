@@ -1,0 +1,33 @@
+{
+  "name": "picturemetadaeditor",
+  "description": "Sandbox project to edit pictures metadata",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "homepage": "./",
+  "author": "Pierre RAINERO",
+  "license": "CC0-1.0",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-test": "react-scripts test",
+    "build-update": "react-scripts build",
+    "electron-start": "electron .",
+    "build-win-app": "electron-packager . PictureMetadaEditor --platform win32 --arch x64 --out app/windows"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5",
+    "electron": "^4.0.6",
+    "electron-packager": "^13.1.0"
+  }
+}
