@@ -7,6 +7,7 @@
 ## Commands list
 
 - [Add gps position](##add_gps_position.bat) : Add custom gps position (latitude and longitude) to each picture of a folder.  
+- [Rename files](##rename_files.bat) : Rename a set of files using a given pattern.  
 - [Retrieve metadata](##retrieve_metadata.bat) : Copy metadata for each picture of a folder to each picture (with the same name) in an other folder.
 
 ## add_gps_position.bat
@@ -33,6 +34,41 @@ Add the gps coordinates : -22.814939 -42.891446
 `add_gps_position.bat .\dest 22.814939 42.891446 -latRef S -longRef W`  
  ![example-add_gps_result](imgs/example-add_gps_result.jpg)  
 
+## rename_files.bat
+
+**Mandatory parameters :**
+
+1. ImagesFolderToUse  
+
+**Optional parameters :**
+
+- -v : Display every file modifications
+
+- -base : Indicates the base name to use. By default the script doesn't use base name, files will be renamed with a number : "1.jpg" "2.jpg" ...  
+
+- -ext : Indicates the extension file to look at. By default the script use `.jpg` extension.
+
+**Examples :**  
+ⓘ For following examples we have 10 files :  
+
+- IMG_001.jpg
+- IMG_002.jpg
+- IMG_003.jpg
+- IMG_004.jpg
+- IMG_005.jpg
+- IMG_006.jpg
+- IMG_somerandomeNumberFromCamera.jpg
+- pngTest.png
+- somePng1.png
+- whyNotPng.png
+
+Rename all files (jpg files) :  
+`rename_files.bat .\tmp -v`
+ ![example-rename_files_verbose](imgs/example-rename_files_verbose.jpg)  
+Rename all png files with base name "Mes images" :  
+`rename_files.bat .\tmp -base "Mes images" -v -ext png`
+ ![example-rename_files_base_extension](imgs/example-rename_files_base_extension.jpg)
+
 ## retrieve_metadata.bat
 
 **Mandatory parameters :**
@@ -45,5 +81,6 @@ Add the gps coordinates : -22.814939 -42.891446
 - -v : Display every file modifications
 
 **Examples :**  
+Copy the metadata of the files from the "src" folder to files with the same name in the "dest" folder :  
 `retrieve_metadata.bat .\src .\dest -v`
  ![example-retrieve_metadata_verbose](imgs/example-retrieve_metadata_verbose.jpg)  
