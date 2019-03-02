@@ -22,6 +22,7 @@
 
 - -latRef : Indicates what hemisphere to use. By default the script use north hemisphere, if the latitude is negative use `-latRef S` and the absolute value of latitude  
 - -longRef : Indicates what longitude axis to use. By default the script use east axis, if the longitude is negative use `-longRef W` and the absolute value of longitude  
+- -ext : Indicates the extension file to look at. By default the script use `.jpg` extension
 
 **Examples :**  
 Add the gps coordinates : 43.087062 6.159426  
@@ -33,6 +34,9 @@ Add the gps coordinates : 48.378117 -4.503119
 Add the gps coordinates : -22.814939 -42.891446  
 `add_gps_position.bat .\dest 22.814939 42.891446 -latRef S -longRef W`  
  ![example-add_gps_result](imgs/example-add_gps_result.jpg)  
+Add the gps following coordinates to all ".jpeg" files : 43.619170 7.074131  
+`add_gps_position.bat .\dest 43.619170 7.074131 -ext jpeg`  
+ ![example-add_gps_result](imgs/example-add_gps_result.jpg)  
 
 ## rename_files.bat
 
@@ -43,10 +47,8 @@ Add the gps coordinates : -22.814939 -42.891446
 **Optional parameters :**
 
 - -v : Display every file modifications
-
 - -base : Indicates the base name to use. By default the script doesn't use base name, files will be renamed with a number : "1.jpg" "2.jpg" ...  
-
-- -ext : Indicates the extension file to look at. By default the script use `.jpg` extension.
+- -ext : Indicates the extension file to look at. By default the script use `.jpg` extension
 
 **Examples :**  
 ⓘ For following examples we have 10 files :  
@@ -78,9 +80,13 @@ Rename all png files with base name "Mes images" :
 
 **Optional parameters :**
 
-- -v : Display every file modifications
+- -v : Display every file modifications  
+- -ext : Indicates the extension file to look at. By default the script use `.jpg` extension
 
 **Examples :**  
 Copy the metadata of the files from the "src" folder to files with the same name in the "dest" folder :  
 `retrieve_metadata.bat .\src .\dest -v`
  ![example-retrieve_metadata_verbose](imgs/example-retrieve_metadata_verbose.jpg)  
+Copy the metadata of ".jpeg" files from "src" to "dest" :  
+`retrieve_metadata.bat .\src .\dest -ext jpeg`  
+ ![example-retrieve_metadata_with_jpeg](imgs/example-add_gps_result.jpg)  

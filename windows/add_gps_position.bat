@@ -3,7 +3,7 @@
 setlocal EnableDelayedExpansion
 
 :: ****** ADD GPS POSITION ******
-:: Version  : 1.0
+:: Version  : 1.1
 :: Author   : Pierre RAINERO
 :: ******* HOW TO USE IT *******
 :: add_gps_position.bat ImagesfolderWithData latitudeValue longitudeValue [options]
@@ -14,6 +14,8 @@ setlocal EnableDelayedExpansion
 :: -longRef : Should be follow by "E" or "W", it's corresponding to the longitude axis.
 ::            If the longitude is negative use : "-longRef  W"
 ::            Default value : E
+:: -ext     : Should be follow by a string representing the extension file to use. 
+::            Default value : jpg
 :: *****************************
 
 :: Mandatory parameters :
@@ -33,6 +35,10 @@ IF NOT "%1"=="" (
         SET refLong=%2
         SHIFT
     )
+    IF "%1"=="-ext" (
+        SET ext=%2
+        SHIFT
+    )
     SHIFT
     GOTO :loop
 )
@@ -43,9 +49,12 @@ IF NOT DEFINED refLat (
 IF NOT DEFINED refLong (
     SET refLong=E
 )
+IF NOT DEFINED ext (
+    SET ext=jpg
+)
 
 REM For each jpg file in the folder of the "folderToUser" :
-FOR %%f IN (%folderToUser%\*.jpg) DO (
+FOR %%f IN (%folderToUser%\*.!ext!) DO (
     exiftool.exe -GPSLatitude="!latitude!" -GPSLongitude="!longitude!" -exif:gpslatituderef=!refLat! -exif:gpslongituderef=!refLong! "%%f"
     DEL "%%f"_original
 )

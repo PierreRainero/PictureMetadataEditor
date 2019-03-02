@@ -3,12 +3,14 @@
 setlocal EnableDelayedExpansion
 
 :: ****** RETRIEVE METADA ******
-:: Version  : 1.3
+:: Version  : 1.4
 :: Author   : Pierre RAINERO
 :: ******* HOW TO USE IT *******
 :: retrieve_metadata.bat ImagesfolderWithData ImagesFolderWithoutData [options]
 :: ********** OPTIONS **********
 :: -v       : Display every file modifications
+:: -ext     : Should be follow by a string representing the extension file to use. 
+::            Default value : jpg
 :: *****************************
 
 :: Mandatory parameters :
@@ -16,22 +18,30 @@ SET imagesWithData=%1
 SET imagesWithoutData=%2
 
 :: Optional parameters :
-SHIFT & SHIFT
+SHIFT
 :loop
 IF NOT "%1"=="" (
     IF "%1"=="-v" (
         SET verbose=y
+    )
+    IF "%1"=="-ext" (
+        SET ext=%2
         SHIFT
-    ) ELSE (
-        SET verbose=
     )
 
     SHIFT
     GOTO :loop
 )
 
+IF NOT DEFINED ext (
+    SET ext=jpg
+)
+IF NOT DEFINED verbose (
+    SET verbose=
+)
+
 :: For each jpg file in the folder of the "imagesWithData" :
-FOR %%f IN (%imagesWithData%\*.jpg) DO (
+FOR %%f IN (%imagesWithData%\*.!ext!) DO (
     :: Parsing the output to select the shooting date :
     exiftool.exe -m "-DateTimeOriginal" "%%f" > temp.txt
     SET    shootingDate=
