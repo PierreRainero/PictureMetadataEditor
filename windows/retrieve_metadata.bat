@@ -94,4 +94,9 @@ FOR %%f IN (%imagesWithData%\*.!ext!) DO (
 )
 
 :: Delete temporary file
-DEL temp.txt
+IF EXIST temp.txt (
+    DEL temp.txt
+) ELSE (
+    ECHO [WARNING] : No files were modified
+    ECHO             Make sure folders are not empty or extension files matches well, check -ext option
+)
