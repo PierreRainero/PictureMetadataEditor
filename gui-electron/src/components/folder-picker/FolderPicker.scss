@@ -1,0 +1,12 @@
+@import '../../_shared.scss';
+
+.folder-displayer {
+    padding-left: 0.5em;
+    max-width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

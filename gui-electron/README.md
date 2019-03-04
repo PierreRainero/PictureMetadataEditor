@@ -40,6 +40,4 @@ In order to make the application works you have to install "[NodeJS](https://nod
 
 You may be interested in other commands (if you are a developer for example). The project exposes the following commands :  
 
-- `npm run react-start` : Launches the React application on a development server available at [localhost:3000](http://localhost:3000/).
 - `npm run react-test` : Launches all tests of the React application (use `a` after this command to forces all tests to be executed).
-- `npm run electron-start` : Launches the Electron application in development mode (no installation needed). ⚠ It uses the production React application, you should use command `npm run build-update` before in order to create the folder "build".

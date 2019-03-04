@@ -6,13 +6,11 @@
   "main": "main.js",
   "homepage": "./",
   "author": "Pierre RAINERO",
-  "license": "CC0-1.0",
+  "license": "MIT",
   "scripts": {
-    "react-start": "react-scripts start",
     "react-test": "react-scripts test",
     "build-update": "react-scripts build",
-    "electron-start": "electron .",
-    "build-win-app": "electron-packager . PictureMetadaEditor --platform win32 --arch x64 --out app/windows"
+    "build-win-app": "add_win_scripts.bat && electron-packager ./build PictureMetadaEditor --platform win32 --arch x64 --out app/windows --overwrite && COPY ..\\windows\\exiftool.exe .\\app\\windows\\PictureMetadaEditor-win32-x64"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,10 +22,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "bootstrap": "^4.3.1",
     "electron": "^4.0.6",
-    "electron-packager": "^13.1.0"
+    "electron-packager": "^13.1.0",
+    "is-electron": "^2.2.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5"
   }
 }

@@ -1,0 +1,84 @@
+@import './styles/_colors.scss';
+
+// ------------- TEXT --------------
+.text-primary {
+    color: $primary-color;
+}
+
+.text-success {
+    color: $success-color;
+}
+
+.text-warning {
+    color: $warning-color;
+}
+
+.text-danger {
+    color: $danger-color;
+}
+// ---------------------------------
+
+// ------------ GENERAL ------------
+a.primary-link {
+    color: $primary-color;
+}
+a.primary-link:hover,
+a.primary-link:active,
+a.primary-link:focus {
+    text-decoration: none;
+    color: $primary-color-dark;
+}
+
+.disabled-cursor {
+    cursor: not-allowed;
+}
+
+.help-cursor {
+    cursor: help;
+}
+
+// ---------------------------------
+// ------ BOOTSTRAP OVERWRITE ------
+// ---         BUTTONS           ---
+.btn.btn-outline-primary.button-outlined-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+}
+
+.btn.btn-outline-primary.button-outlined-primary:hover {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: $primary-color-text;
+}
+
+.btn.btn-outline-primary.button-outlined-primary:focus {
+    border-color: $primary-color;
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, 0.075), 0 0 8px $primary-color;
+}
+
+.btn.btn-outline-primary.button-outlined-primary:active {
+    border-color: $primary-color;
+}
+
+.btn.btn-outline-success.button-outlined-sucess {
+    color: $success-color;
+    border-color: $success-color;
+}
+
+.btn.btn-outline-success.button-outlined-sucess:hover {
+    background-color: $success-color;
+    border-color: $success-color;
+    color: $primary-color-text;
+}
+
+.btn.btn-outline-success.button-outlined-sucess:focus {
+    border-color: $success-color;
+    box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, 0.075), 0 0 8px $success-color;
+}
+
+.btn.btn-outline-success.button-outlined-sucess:active {
+    border-color: $success-color;
+}
+
+// ---          ------           ---
+// ---------------------------------

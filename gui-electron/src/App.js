@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from 'react-bootstrap';
+import ImportMetadata from './components/import-metadata/ImportMetadata';
+import AuthorCard from './components/author-card/AuthorCard';
+import './App.scss';
 
+/**
+ * @description Main container for the application
+ * @author Pierre RAINERO
+ */
 class App extends Component {
+  /**
+    * @description Render the component
+    */
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='App'>
+        <Container className='container'>
+          <ImportMetadata />
+          <AuthorCard />
+        </Container>
       </div>
     );
   }
