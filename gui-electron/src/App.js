@@ -9,19 +9,19 @@ import './App.scss';
  * @author Pierre RAINERO
  */
 class App extends Component {
-  /**
-    * @description Render the component
-    */
-  render() {
-    return (
-      <div className='App'>
-        <Container className='container'>
-          <ImportMetadata />
-          <AuthorCard />
-        </Container>
-      </div>
-    );
-  }
+	/**
+	  * @description Render the component
+	  */
+	render() {
+		return (
+			<div className='App'>
+				<Container className='container'>
+					<ImportMetadata />
+					<AuthorCard />
+				</Container>
+			</div>
+		);
+	}
 }
 
 export default App;

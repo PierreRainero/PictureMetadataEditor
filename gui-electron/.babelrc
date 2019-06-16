@@ -1,0 +1,19 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    /**
+     * Babel pre-config for style files
+     */
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                "transform-react-remove-prop-types"
+            ]
+        }
+    }
+}

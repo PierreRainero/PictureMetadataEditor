@@ -1,4 +1,4 @@
-@import './styles/_colors.scss';
+@import './_colors.scss';
 
 // ------------- TEXT --------------
 .text-primary {
@@ -22,6 +22,7 @@
 a.primary-link {
     color: $primary-color;
 }
+
 a.primary-link:hover,
 a.primary-link:active,
 a.primary-link:focus {
@@ -60,25 +61,24 @@ a.primary-link:focus {
     border-color: $primary-color;
 }
 
-.btn.btn-outline-success.button-outlined-sucess {
+.btn.btn-outline-success.button-outlined-success {
     color: $success-color;
     border-color: $success-color;
 }
 
-.btn.btn-outline-success.button-outlined-sucess:hover {
+.btn.btn-outline-success.button-outlined-success:hover {
     background-color: $success-color;
     border-color: $success-color;
     color: $primary-color-text;
 }
 
-.btn.btn-outline-success.button-outlined-sucess:focus {
+.btn.btn-outline-success.button-outlined-success:focus {
     border-color: $success-color;
     box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, 0.075), 0 0 8px $success-color;
 }
 
-.btn.btn-outline-success.button-outlined-sucess:active {
+.btn.btn-outline-success.button-outlined-success:active {
     border-color: $success-color;
 }
-
 // ---          ------           ---
 // ---------------------------------

@@ -1,13 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-/**
- * Checks if the component can be rendered
- */
-it('Should renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-// =======================================
+describe('App Tests', () => {
+	beforeEach(() => {
+		jest.resetModules();
+	});
+
+	/**
+	 * Checks if the component can be rendered
+	 */
+	it('Should renders without crashing', () => {
+		const component = shallow(<App />);
+
+		expect(component).toBeTruthy();
+	});
+	// =======================================
+}); 
