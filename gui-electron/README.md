@@ -38,8 +38,26 @@ Thanks to [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/) to
 
 ## Details
 
+### Commands
+
 You may be interested in other commands (if you are a developer for example). The project exposes the following commands :  
 
 - `npm run test` : Launches all tests of the React application using [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/).  
 - `npm run test:coverage` : Same as `npm test` but generate a complete coverage report under folder named "_coverage_".  
 - `npm run lint` : Run the linter [eslint](https://eslint.org/) in order to check if the code has a correct syntax.  
+
+⚠️ If you want to contribute to this project keep in mind commands `lint` and `test` will be called to validate your contribution so test them before make any pull request. You have to ensure tests written before your contribution are keep working and you have to test your code. For a file name _myNewComponent.js_ write in the same folder _myNewComponent.test.js_ testing UI behaviors.
+
+### GUI Project structure
+
+```text
+├── src                                            : Source code folder
+│    ├── components                                : Components folder
+│    │     └── myComponent                         : Dedicated component folder (isoled)
+│    │          ├── myComponent.js                 : Component source code
+|    │          ├── myComponent.scss               : Dedicated component style
+|    │          └── myComponent.test.js            : Component tests
+|    ├── styles                                    : Styles shared between components
+|    └── util                                      : Services/Configs shared between components
+└── public                                         : Folder containing assets not compress/uglified
+```
