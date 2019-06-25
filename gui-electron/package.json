@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --coverage --colors",
+    "test:coverage": "jest --coverage --colors --coverageReporters=text-lcov",
     "lint": "npx eslint src/**/*.js",
     "build-update": "webpack --display=minimal --mode production",
     "build-win-app": "cd deploy && add_win_scripts.bat && cd .. && electron-packager ./build PictureMetadaEditor --platform win32 --arch x64 --out app/windows --overwrite && COPY ..\\windows\\exiftool.exe .\\app\\windows\\PictureMetadaEditor-win32-x64"
@@ -38,6 +38,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "copy-webpack-plugin": "^5.0.3",
+    "coveralls": "^3.0.4",
     "css-loader": "^2.1.1",
     "electron-packager": "^13.1.0",
     "enzyme": "^3.10.0",

@@ -26,7 +26,7 @@ jobs:
         - cd ./gui-electron
         - npm i
       script: 
-        - npm run test:coverage
+        - npm run test:coverage | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
     - name: "GUI Windows"
       os:
         - windows
@@ -36,7 +36,7 @@ jobs:
         - cd ./gui-electron
         - npm i
       script: 
-        - npm run test:coverage
+        - npm run test
     - stage: deploy
       name: "Create windows application"
       os:
