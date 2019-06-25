@@ -1,0 +1,47 @@
+language: node_js
+node_js: '8'
+branches:
+  only: master
+jobs:
+  include:
+    - stage: lint
+      before_install:
+         - npm config set package-lock false
+      install:
+        - cd ./gui-electron
+        - npm i
+      script: 
+        - npm run lint
+    - stage: test
+      name: "GUI Linux"
+      os:
+        - linux
+      before_install:
+         - npm config set package-lock false
+      install:
+        - cd ./gui-electron
+        - npm i
+      script: 
+        - npm run test:coverage
+    - name: "GUI Windows"
+      os:
+        - windows
+      before_install:
+         - npm config set package-lock false
+      install:
+        - cd ./gui-electron
+        - npm i
+      script: 
+        - npm run test:coverage
+    - stage: deploy
+      name: "Create windows application"
+      os:
+        - windows
+      before_install:
+         - npm config set package-lock false
+      install:
+        - cd ./gui-electron
+        - npm i
+      script:
+        - npm run build-update
+        - npm run build-win-app
