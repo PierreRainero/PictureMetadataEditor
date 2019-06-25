@@ -6,6 +6,11 @@ notifications:
     on_failure: always 
 branches:
   only: master
+addons:
+  sonarcloud:
+    organization: "pierrerainero-github"
+    token:
+      secure: $SONAR_TOKEN
 jobs:
   include:
     - stage: lint
@@ -26,7 +31,10 @@ jobs:
         - cd ./gui-electron
         - npm i
       script: 
-        - npm run test:coverage | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+        - npm run test:coverage | ./node_modules/coveralls/bin/coveralls.js
+        - cd ..
+        - sonar-scanner -Dproject.settings=./sonar-project.properties
+        - sonar-scanner -Dsonar.login="$SONAR_TOKEN"
     - name: "GUI Windows"
       os:
         - windows

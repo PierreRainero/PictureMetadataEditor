@@ -1,6 +1,7 @@
 # Picture Metadata Editor
 
-[![Build Status](https://travis-ci.com/PierreRainero/PictureMetadataEditor.svg?branch=master)](https://travis-ci.com/PierreRainero/PictureMetadataEditor)
+[![Build Status](https://travis-ci.com/PierreRainero/PictureMetadataEditor.svg?branch=master)](https://travis-ci.com/PierreRainero/PictureMetadataEditor) [![Coverage Status](https://coveralls.io/repos/github/PierreRainero/PictureMetadataEditor/badge.svg?branch=master)](https://coveralls.io/github/PierreRainero/PictureMetadataEditor?branch=master) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PierreRainero_PictureMetadataEditor&metric=alert_status)](https://sonarcloud.io/dashboard?id=PierreRainero_PictureMetadataEditor)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/PierreRainero/PictureMetadataEditor/blob/master/LICENSE)
 
 ## Summary
 
