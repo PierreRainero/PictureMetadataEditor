@@ -3,7 +3,7 @@
 setlocal EnableDelayedExpansion
 
 :: ****** RETRIEVE METADA ******
-:: Version  : 1.4
+:: Version  : 1.5
 :: Author   : Pierre RAINERO
 :: ******* HOW TO USE IT *******
 :: retrieve_metadata.bat ImagesfolderWithData ImagesFolderWithoutData [options]
@@ -52,7 +52,25 @@ FOR %%f IN (%imagesWithData%\*.!ext!) DO (
         SET resultShootingDate=!shootingDate:~34!
     )
     
-    :: Parsing the output to select the gps position :
+    :: Parsing the output to select the gps position. First retrieve correct axis to use :
+    exiftool.exe -m "-GPSLatitudeRef" "%%f" > temp.txt
+    SET    gpsLatitudeRef=
+    SET /p gpsLatitudeRef=<temp.txt
+    IF [!gpsLatitudeRef!]==[] (
+        SET resultgpsLatitudeRef=
+    ) ELSE (
+        SET resultgpsLatitudeRef=!gpsLatitudeRef:~34!
+    )
+    exiftool.exe -m "-GPSLongitudeRef" "%%f" > temp.txt
+    SET    gpsLongitudeRef=
+    SET /p gpsLongitudeRef=<temp.txt
+    IF [!gpsLongitudeRef!]==[] (
+        SET resultgpsLongitudeRef=
+    ) ELSE (
+        SET resultgpsLongitudeRef=!gpsLongitudeRef:~34!
+    )
+
+    :: Then retrieve coordinates :
     exiftool.exe -m -n "-GPSLatitude" "%%f" > temp.txt
     SET    gpsLatitude=
     SET /p gpsLatitude=<temp.txt
@@ -89,7 +107,8 @@ FOR %%f IN (%imagesWithData%\*.!ext!) DO (
     )
 
     :: Copy the metadata of the "imageWithData" to the "imageWithoutData" :
-    exiftool.exe -DateTimeOriginal="!resultShootingDate!" -GPSLatitude="!resultGpsLatitude!" -GPSLongitude="!resultGpsLongitude!" "!str!"
+    exiftool.exe -DateTimeOriginal="!resultShootingDate!" -GPSLatitudeRef="!resultgpsLatitudeRef!" -GPSLongitudeRef="!resultgpsLongitudeRef!" -GPSLatitude="!resultGpsLatitude!" -GPSLongitude="!resultGpsLongitude!" "!str!"
+
     DEL "!str!_original"
 )
 
